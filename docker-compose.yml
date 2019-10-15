@@ -13,3 +13,14 @@ services:
     environment:
       - JAVA_OPTS=
          -DEUREKA_URI=http://registryservice:8761/eureka
+  gatewayservice:
+    build: gatewayservice
+    mem_limit: 512M
+    ports:
+      - "9000:9000"
+    links:
+      - customerservice:customerservice
+      - registryservice:registryservice
+    depends_on:
+      - customerservice
+      - registryservice

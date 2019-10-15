@@ -1,5 +1,10 @@
 version: '2'
 services:
+  registryservice:
+    build: registryservice
+    mem_limit: 512M
+    ports:
+      - "8761:8761"
   customerservice:
     build: customerservice
     mem_limit: 512M
